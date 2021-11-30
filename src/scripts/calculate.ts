@@ -1,9 +1,3 @@
-import { getAlcoholDegree } from "./input-getter";
-import { getTemperatureInCelsius } from "./input-getter";
-
-const n = 5;
-const m: number[] = [11, 10, 9, 4, 2];
-
 const A: number[] = [
   913.76673,
   -221.75948,
@@ -36,26 +30,30 @@ const C: number[][] = [
   [-1.44417e-08, 1.34705e-08]
 ];
 
-function calculate() {
-  const gm = getAlcoholDegree();
-  const t = getTemperatureInCelsius();
+function calculate(gm: number, t: number): {
+  specificMass: number;
+  specificMass20: number;
+} {
 
   let me: number = A[0];
-  for (let k = 1; k < 12; k++) {
-    me += A[k] * Math.pow((gm/100) - 0.5, k + 1);
+  for (let k = 1; k < A.length; k++) {
+    me += A[k] * Math.pow((gm/100) - 0.5, k);
   }
   
-  for (let k = 0; k < 6; k++) {
+  for (let k = 0; k < B.length; k++) {
     me += B[k] * Math.pow(t - 20, k + 1);
   }
 
-  for (let i = 0; i < n; i++) {
-    for (let k = 0; k < m[i]; k++) {
+  for (let i = 0; i < C.length; i++) {
+    for (let k = 0; k < C[i].length; k++) {
       me += C[i][k] * Math.pow((gm/100) - 0.5, k + 1) * Math.pow(t - 20, i + 1);
     }
   }
-
-  console.log(me);
+  
+  return {
+    specificMass: me,
+    specificMass20: (t != 20) ? calculate(gm, 20).specificMass : me
+  };
 }
 
 export default calculate;

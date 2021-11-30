@@ -8,6 +8,8 @@ function listen() {
   const alcoholDegreeInput: HTMLInputElement = document.querySelector(".alcohol-degree") as HTMLInputElement;
   const temperatureInput: HTMLInputElement = document.querySelector(".temperature") as HTMLInputElement;
   const temperatureUnitInput: HTMLSelectElement = document.querySelector(".temperature-unit-input") as HTMLSelectElement;
+  const meResult: HTMLParagraphElement = document.querySelector(".me-result") as HTMLParagraphElement;
+  const meResult20: HTMLParagraphElement = document.querySelector(".me-result-20") as HTMLParagraphElement;
   const calculateButton: HTMLButtonElement = document.querySelector(".button-calculate") as HTMLButtonElement;
 
   alcoholDegreeInput.value = alcoholDegree.toString();
@@ -28,7 +30,11 @@ function listen() {
     temperatureUnitInput.value = (<HTMLSelectElement>e.target).value;
   };
 
-  calculateButton.onclick = calculate;
+  calculateButton.onclick = () => {
+    const result = calculate(getAlcoholDegree(), getTemperatureInCelsius());
+    meResult.innerText = `Specific Mass of Alcohol: ${result.specificMass.toFixed(5)}`;
+    meResult20.innerText = `Specific Mass of Alcohol at 20ºc: ${result.specificMass20.toFixed(5)}`;
+  };
 }
 
 function getAlcoholDegree(): number {
