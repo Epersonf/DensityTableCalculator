@@ -1,0 +1,40 @@
+:root {
+  --primary-white: #fafafa;
+  --primary-black: #333;
+}
+
+body {
+  background-color: var(--primary-black);
+}
+
+.input-table {
+  border-radius: 10px;
+  background-color: var(--primary-white);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 0 auto;
+  align-items: center;
+  padding: 20px;
+}
+
+.result-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.input-table h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+input {
+  border-radius: 5px;
+  outline: none;
+}
+
+hr {
+  width: 90%;
+}
