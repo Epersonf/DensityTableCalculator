@@ -1,19 +1,19 @@
-function celsiusToFarenheit(value: number): number {
-  return (value * 9/5) + 32;
-}
-
-function celsiusToKelvin(value: number): number {
-  return value + 273.15;
+function kgM3ToGMl(value: number, code: string) {
+  switch (code) {
+  case "g/ml":
+    return value/1000;
+  }
+  return value;
 }
 
 function celsiusConvert(value: number, code: string) {
   switch (code) {
   case "F":
-    return celsiusToFarenheit(value);
+    return (value * 9/5) + 32;
   case "K":
-    return celsiusToKelvin(value);
+    return value + 273.15;
   }
   return value;
 }
 
-export { celsiusConvert };
+export { celsiusConvert, kgM3ToGMl };
