@@ -1,4 +1,5 @@
 import calculate from "./calculate";
+import { celsiusConvert } from "./convertUtil";
 
 let alcoholDegree = 0;
 let temperature = 0;
@@ -34,9 +35,9 @@ function listen() {
 
   calculateButton.onclick = () => {
     const result = calculate(getAlcoholDegree(), getTemperatureInCelsius());
-    meResult.innerHTML = `Specific Mass of Alcohol: <b style="font-weight: bold; color: red;">${result.specificMass.toFixed(5)}</b>`;
-    meResult20.innerHTML = `Specific Mass of Alcohol at 20ºC: <b style="font-weight: bold; color: red;">${result.specificMass20.toFixed(5)}</b>`;
-    alcoholicDegreeOutput.innerHTML = `Alcoholic degree at 20ºC: <b style="font-weight: bold; color: red;">${(getAlcoholDegree() * (result.specificMass20 / 789.23)).toFixed(5)}</b>`;
+    meResult.innerHTML = `Specific Mass of Alcohol kg/m³: <b style="font-weight: bold; color: red;">${result.specificMass.toFixed(5)}</b>`;
+    meResult20.innerHTML = `Specific Mass of Alcohol at ${celsiusConvert(20, temperatureUnit)}º${temperatureUnitInput.value} kg/m³: <b style="font-weight: bold; color: red;">${result.specificMass20.toFixed(5)}</b>`;
+    alcoholicDegreeOutput.innerHTML = `Alcoholic degree at ${celsiusConvert(20, temperatureUnit)}º${temperatureUnitInput.value} % v/v: <b style="font-weight: bold; color: red;">${(getAlcoholDegree() * (result.specificMass20 / 789.23)).toFixed(5)}</b>`;
     correctionFactorOutput.innerHTML = `Correction factor: <b style="font-weight: bold; color: red;">${(
       (result.specificMass / result.specificMass20) * (1 + 0.000036 * (getTemperatureInCelsius() - 20))
     ).toFixed(5)}</b>`;
