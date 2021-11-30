@@ -6,21 +6,27 @@
     </head>
     <body>
         <section class="input-table">
-            <h1>Alcohol Table</h1>
-            <input type="number" min="0" max="100" placeholder="Alcohol Degree" class="alcohol-degree"/>
-            <div>
-                <input type="number" placeholder="Temperature" class="temperature"/>
+            <h1>Alcohol Density Table</h1>
+            <label>
+                Alcohol degree % m/m:
+                <input type="number" min="0" max="100" class="alcohol-degree"/>
+            </label>
+            <label>
+                Temperature:
+                <input type="number" class="temperature"/>
                 <select class="temperature-unit-input">
                     <option value="C">ºC</option>
                     <option value="F">ºF</option>
                     <option value="K">ºK</option>
                 </select>
-            </div>
+            </label>
             <button class="button-calculate">Calculate</button>
             <hr />
             <div class="result-table">
-                <p class="me-result">Specific Mass of Alcohol: ##</p>
-                <p class="me-result-20">Specific Mass of Alcohol at 20 ºC: ##</p>
+                <p class="me-result"></p>
+                <p class="me-result-20"></p>
+                <p class="alcoholic-degree-gv"></p>
+                <p class="correction-factor"></p>
             </div>
         </section>
     </body>
