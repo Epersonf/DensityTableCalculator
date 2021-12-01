@@ -18,7 +18,7 @@ function tabListen() {
     switchTab(convertDensityTable);
   };
 
-  switchTab(convertDensityTable);
+  switchTab(alcoholDensityTable);
 }
 
 function switchTab(tab: Element) {
