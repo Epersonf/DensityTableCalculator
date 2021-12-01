@@ -1,5 +1,5 @@
 import calculate from "./calculate";
-import { celsiusConvert, kgM3ToGMl } from "../convert-util";
+import { celsiusConvert, celsiusDeconvert, kgM3ToGMl } from "../convert-util";
 
 let alcoholDegree = 0;
 let temperature = 0;
@@ -60,13 +60,7 @@ function getAlcoholDegree(): number {
 }
 
 function getTemperatureInCelsius(): number {
-  switch (temperatureUnit) {
-  case "F":
-    return (temperature - 32) * 5/9;
-  case "K":
-    return temperature - 273.15;
-  }
-  return temperature;
+  return celsiusDeconvert(temperature, temperatureUnit);
 }
 
 export { getAlcoholDegree, getTemperatureInCelsius, listenAlcoholInput };

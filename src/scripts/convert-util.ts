@@ -6,6 +6,16 @@ function kgM3ToGMl(value: number, code: string) {
   return value;
 }
 
+function celsiusDeconvert(value: number, code: string) {
+  switch (code) {
+  case "F":
+    return (value - 32) * 5/9;
+  case "K":
+    return value - 273.15;
+  }
+  return value;
+}
+
 function celsiusConvert(value: number, code: string) {
   switch (code) {
   case "F":
@@ -16,4 +26,4 @@ function celsiusConvert(value: number, code: string) {
   return value;
 }
 
-export { celsiusConvert, kgM3ToGMl };
+export { celsiusConvert, celsiusDeconvert, kgM3ToGMl };

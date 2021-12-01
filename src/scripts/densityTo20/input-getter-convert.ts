@@ -1,4 +1,4 @@
-import { celsiusConvert } from "../convert-util";
+import { celsiusConvert, celsiusDeconvert } from "../convert-util";
 
 let observedDensity = 0;
 let fluidDensity = 0.00112473;
@@ -41,7 +41,7 @@ function listenConvertInput() {
   };
 
   function giveOutput() {
-    const result = observedDensity * (1 + fluidDensity * (celsiusConvert(temperature, temperatureUnit) - 20));
+    const result = observedDensity * (1 + fluidDensity * (celsiusDeconvert(temperature, temperatureUnit) - 20));
     specificMass20Output.innerText = `Density normalized to ${celsiusConvert(20, temperatureUnit)} º${temperatureUnit}: ${result.toFixed(4)}`;
   }
 }
