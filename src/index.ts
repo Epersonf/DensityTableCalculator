@@ -1,8 +1,12 @@
 import "./styles/reset.css";
 import "./styles/index.css";
-import "./scripts/input-getter";
-import { listen } from "./scripts/input-getter";
+import "./scripts/alcohol/input-getter";
+import { listenAlcoholInput } from "./scripts/alcohol/input-getter";
+import { listenConvertInput } from "./scripts/densityTo20/input-getter-convert";
+import { tabListen } from "./scripts/tab-manager";
 
 window.onload = () => {
-  listen();
+  listenAlcoholInput();
+  listenConvertInput();
+  tabListen();
 };

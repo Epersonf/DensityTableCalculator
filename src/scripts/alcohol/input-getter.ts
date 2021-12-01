@@ -1,12 +1,12 @@
 import calculate from "./calculate";
-import { celsiusConvert, kgM3ToGMl } from "./convertUtil";
+import { celsiusConvert, kgM3ToGMl } from "../convert-util";
 
 let alcoholDegree = 0;
 let temperature = 0;
 let temperatureUnit = "C";
 let resultUnit = "kg/m³";
 
-function listen() {
+function listenAlcoholInput() {
   const alcoholDegreeInput: HTMLInputElement = document.querySelector(".alcohol-degree") as HTMLInputElement;
   const temperatureInput: HTMLInputElement = document.querySelector(".temperature") as HTMLInputElement;
   const temperatureUnitInput: HTMLSelectElement = document.querySelector(".temperature-unit-input") as HTMLSelectElement;
@@ -69,4 +69,4 @@ function getTemperatureInCelsius(): number {
   return temperature;
 }
 
-export { getAlcoholDegree, getTemperatureInCelsius, listen };
+export { getAlcoholDegree, getTemperatureInCelsius, listenAlcoholInput };
